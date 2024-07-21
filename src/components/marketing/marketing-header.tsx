@@ -5,6 +5,7 @@ import { Container } from "@/primitives/Container";
 import Link from "next/link";
 import { ComponentProps } from "react";
 
+import { signIn } from "@/lib/auth";
 import clsx from "clsx";
 import styles from "./marketing-header.module.css";
 
@@ -18,7 +19,12 @@ export function MarketingHeader({
         <Link href="/">
           <Logo />
         </Link>
-        <form>
+        <form
+          action={async () => {
+            "use server";
+            await signIn();
+          }}
+        >
           <Button icon={<SignInIcon />}>Sign in</Button>
         </form>
       </Container>

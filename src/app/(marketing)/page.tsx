@@ -5,7 +5,9 @@ import { Container } from "@/primitives/Container";
 import { ComponentProps, ReactNode } from "react";
 
 import { auth, signIn } from "@/lib/auth";
+import { DASHBOARD_URL } from "@/lib/constants";
 import clsx from "clsx";
+import { redirect } from "next/navigation";
 import styles from "./page.module.css";
 
 interface FeatureProps extends Omit<ComponentProps<"div">, "title"> {
@@ -25,9 +27,9 @@ function Feature({ title, description, className, ...props }: FeatureProps) {
 export default async function Home() {
   let session = await auth();
 
-  // if (session) {
-  //   redirect("/dashboard");
-  // }
+  if (session) {
+    redirect(DASHBOARD_URL);
+  }
 
   return (
     <MarketingLayout>
