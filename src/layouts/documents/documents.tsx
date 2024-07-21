@@ -18,8 +18,8 @@ export async function DocumentsLayout({ filter, groupId }: Props) {
       );
     }
 
-    return <DocumentsList />;
+    return <DocumentsList filter={filter} group={group} />;
   }
 
-  return <DocumentsList />;
+  return <DocumentsList filter={filter} />;
 }
