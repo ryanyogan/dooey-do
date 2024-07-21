@@ -26,7 +26,11 @@ export function DashboardHeader({
   return (
     <header className={clsx(className, styles.header)} {...props}>
       <div className={styles.menu}>
-        <Button className={styles.menuToggle} onClick={onMenuClick}>
+        <Button
+          style={{ color: "#000" }}
+          className={styles.menuToggle}
+          onClick={onMenuClick}
+        >
           {isOpen ? <CrossIcon /> : <MenuIcon />}
         </Button>
       </div>

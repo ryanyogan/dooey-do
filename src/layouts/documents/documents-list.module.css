@@ -1,0 +1,26 @@
+.documents {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+}
+
+.container {
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface-elevated);
+  border-radius: var(--radius);
+}
+
+.emptyState {
+  display: flex;
+  min-height: 320px;
+  flex-direction: column;
+  color: var(--color-text-lighter);
+  gap: var(--space-6);
+  place-content: center;
+  place-items: center;
+  text-align: center;
+}
