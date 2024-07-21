@@ -4,6 +4,7 @@ import { Button, LinkButton } from "@/primitives/Button";
 import { Container } from "@/primitives/Container";
 import { ComponentProps, ReactNode } from "react";
 
+import { auth, signIn } from "@/lib/auth";
 import clsx from "clsx";
 import styles from "./page.module.css";
 
@@ -21,7 +22,13 @@ function Feature({ title, description, className, ...props }: FeatureProps) {
   );
 }
 
-export default function Home() {
+export default async function Home() {
+  let session = await auth();
+
+  // if (session) {
+  //   redirect("/dashboard");
+  // }
+
   return (
     <MarketingLayout>
       <Container className={styles.section}>
@@ -33,7 +40,12 @@ export default function Home() {
         </div>
 
         <div className={styles.heroActions}>
-          <form action="">
+          <form
+            action={async () => {
+              "use server";
+              await signIn();
+            }}
+          >
             <Button icon={<SignInIcon />}>Sign in</Button>
           </form>
           <LinkButton href="#" target="_blank" variant="secondary">
