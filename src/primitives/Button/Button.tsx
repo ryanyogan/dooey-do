@@ -38,6 +38,8 @@ export const Button = forwardRef<
   )
 );
 
+Button.displayName = "Button";
+
 export function LinkButton({
   variant = "primary",
   icon,
